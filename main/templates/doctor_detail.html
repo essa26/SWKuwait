@@ -1,0 +1,23 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ doctor.name }}</title>
+
+
+</head>
+	<body>
+    {{ doctor.name }}
+    {{ doctor.mobile }}
+    {{ doctor.email }}
+    {{ doctor.clinic }}
+
+
+{% crispy form %}
+
+
+
+	</body>
+</html>

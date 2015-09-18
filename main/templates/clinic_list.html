@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clinic List</title>
+    
+
+</head>
+	<body>
+
+
+{% for clinic in clinics %}
+
+{#    link to doctor detail page#}
+    <a href="">{{ clinic.name }}</a>
+
+{% endfor %}
+
+
+	</body>
+</html>

@@ -6,6 +6,7 @@ from django.db import models
 
 #number_validator = RegexValidator(r'^[0-9]*$','Please type only numbers for your civil ID')
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     name = models.CharField(max_length=255)
@@ -13,6 +14,7 @@ class UserProfile(models.Model):
     emergency1 = models.CharField(max_length=15)
     emergency2 = models.CharField(max_length=15)
     clinic = models.ForeignKey('main.Clinic')
+    doctor = models.ForeignKey('main.DoctorProfile')
 
     def __unicode__(self):
         return self.user.username

@@ -47,6 +47,7 @@ class Migration(migrations.Migration):
                 ('emergency1', models.CharField(max_length=15)),
                 ('emergency2', models.CharField(max_length=15)),
                 ('clinic', models.ForeignKey(to='main.Clinic')),
+                ('doctor', models.ForeignKey(to='main.DoctorProfile')),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
         ),
