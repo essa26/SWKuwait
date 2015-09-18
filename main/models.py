@@ -6,6 +6,7 @@ from django.db import models
 
 #number_validator = RegexValidator(r'^[0-9]*$','Please type only numbers for your civil ID')
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     name = models.CharField(max_length=255)

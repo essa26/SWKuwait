@@ -1,5 +1,8 @@
 from django import forms
 from django.core.validators import RegexValidator
+
+# RegexValidator(r'^[a-zA-Z]*$','Please Type Letters')
+
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 
