@@ -15,9 +15,12 @@
     {{ doctor.clinic }}
 
 
-{% crispy form %}
+                  <form action="/email/{{ doctor.pk }}/"method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-
+        <input type="submit" value="Send Email">
+    </form>
 
 	</body>
 </html>

@@ -41,6 +41,14 @@ INSTALLED_APPS = (
     'crispy_forms',
 )
 
+#emails
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'Q8DIABETES@GMAIL.COM'
+EMAIL_HOST_PASSWORD = 'IAmAdmin'
+EMAIL_USE_TLS = True
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
