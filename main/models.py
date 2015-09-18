@@ -8,7 +8,6 @@ from django.db import models
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    log = models.OneToOneField('main.Log')
     name = models.CharField(max_length=255)
     mobile = models.CharField(max_length=15)
     emergency1 = models.CharField(max_length=15)
@@ -33,7 +32,7 @@ class Log(models.Model):
 class DoctorProfile(models.Model):
     user = models.OneToOneField(User)
     name = models.CharField(max_length=255)
-    clinic = models.ForeignKey('main.clinic')
+    clinic = models.ForeignKey('main.Clinic')
     mobile = models.CharField(max_length=15)
 
     def __unicode__(self):
