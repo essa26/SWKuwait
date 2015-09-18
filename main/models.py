@@ -13,6 +13,7 @@ class UserProfile(models.Model):
     mobile = models.CharField(max_length=15)
     emergency1 = models.CharField(max_length=15)
     emergency2 = models.CharField(max_length=15)
+    clinic = models.ForeignKey('main.Clinic')
 
     def __unicode__(self):
         return self.user.username
@@ -39,5 +40,7 @@ class DoctorProfile(models.Model):
 
 
 class Clinic(models.Model):
-    user = models.OneToOneField(User)
     name = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return self.name
