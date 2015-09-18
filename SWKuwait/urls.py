@@ -19,6 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bloodtest/$', 'main.views.bloodTest'),
+    url(r'^$', 'main.views.home'),
     url(r'^logbook/$', 'main.views.getLogs'),
     url(r'^login/$', 'main.views.login_view'),
     url(r'^clinic_list/$', 'main.views.clinic_list'),

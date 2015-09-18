@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+That last test was {{ msg }}
+<form action="/bloodtest/" method="POST">
+    {% csrf_token %}
+    <input type="text" name="bloodsugar">
+
+    {% if user.is_authenticated %}
+        <input type="submit" value="save">
+    {% else %}
+        <input type="submit" value="check">
+    {% endif %}
+</form>
+
+
+{% for log in logs %}
+
+{{ log.date }}
+{{ log.blood_sugar }}
+
+{% endfor %}
+</body>
+</html>
