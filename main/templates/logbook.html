@@ -5,23 +5,21 @@
     <title>Document</title>
 </head>
 <body>
-That last test was {{ msg }}
-<form action="/bloodtest/" method="POST">
-    {% csrf_token %}
-    <input type="text" name="bloodsugar">
 
-    {% if user.is_authenticated %}
-        <input type="submit" value="save">
-    {% else %}
-        <input type="submit" value="check">
-    {% endif %}
-</form>
 
 
 {% for log in logs %}
+<<<<<<< HEAD
     {{ log.message }}
     {{ log.date }}
     {{ log.blood_sugar }}
+=======
+
+    <h5>{{ log.date }}</h5></br>
+    {{ log.blood_sugar }}</br>
+    {{ log.level }}</br>
+    {{ log.comment }}</br>
+>>>>>>> 07bfc30fad4eae84eb5fffbed8591d96b814ba50
 
 {% endfor %}
 </body>
