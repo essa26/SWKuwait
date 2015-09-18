@@ -18,7 +18,7 @@ def getLogs(request):
     context['logs'] = logs
     template = 'index.html'
 
-    return render_to_response(template, context, context_instance=RequestContext(request))
+    return render(request, template, context)
 
 #login view using crispy
 def login_view(request):
