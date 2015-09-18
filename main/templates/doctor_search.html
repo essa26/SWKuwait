@@ -16,7 +16,7 @@
 
 {#link to doctors detail page#}
     {% for doctor in doctors %}
-        <a href="">{{ doctor.name }}</a>
+        <a href="/doctor_detail/{{ doctor.pk }}">{{ doctor.name }}</a>
     {% endfor %}
 
 	</body>

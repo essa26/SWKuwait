@@ -21,4 +21,10 @@ urlpatterns = [
     url(r'^bloodtest/$', 'main.views.bloodTest'),
     url(r'^logbook/$', 'main.views.getLogs'),
     url(r'^login/$', 'main.views.login_view'),
+    url(r'^doctorsearch/$', 'main.views.doctor_search'),
+    url(r'email/(?P<pk>\w+)/$', 'main.views.send_email_view'),
+    url(r'doctor_detail/(?P<pk>\w+)/$', 'main.views.doctor_detail_view'),
 ]
+
+
+## <form method="SHE-SAID" action="/email/{{ doctor.pk }}/" />

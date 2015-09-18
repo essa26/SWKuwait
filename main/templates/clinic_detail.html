@@ -1,0 +1,23 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ clinic.name }}</title>
+
+
+</head>
+	<body>
+
+    {% for doctor in doctors %}
+    <a href="/doctor_detail/{{ doctor.pk }}/">{{ doctor.name }}</a>
+
+
+    {% endfor %}
+
+
+
+
+	</body>
+</html>

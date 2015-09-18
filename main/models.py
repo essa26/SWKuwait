@@ -35,6 +35,7 @@ class DoctorProfile(models.Model):
     name = models.CharField(max_length=255)
     clinic = models.ForeignKey('main.Clinic')
     mobile = models.CharField(max_length=15)
+    email = models.CharField(max_length=255)
 
     def __unicode__(self):
         return self.user.username
