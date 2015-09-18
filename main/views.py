@@ -14,4 +14,5 @@ def getLogs(request):
 
     return render_to_response(template, context, context_instance=RequestContext(request))
 
+#def bloodTest(request):
 
