@@ -6,12 +6,12 @@ from django.db import models
 
 #number_validator = RegexValidator(r'^[0-9]*$','Please type only numbers for your civil ID')
 
+class UserProfile(models.Model):
 
 
 class Log(models.Model):
-    bloog_sugar = models.IntegerField()
+    blood_sugar = models.IntegerField()
     date = models.DateTimeField()
     comment = models.TextField(null=True)
-
     user = models.ForeignKey(User)  # django stock user?
 
