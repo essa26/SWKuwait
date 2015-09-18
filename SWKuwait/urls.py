@@ -19,11 +19,15 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^bloodtest/$', 'main.views.bloodTest'),
+    url(r'^$', 'main.views.home'),
     url(r'^logbook/$', 'main.views.getLogs'),
     url(r'^login/$', 'main.views.login_view'),
+    url(r'^clinic_list/$', 'main.views.clinic_list'),
     url(r'^doctorsearch/$', 'main.views.doctor_search'),
     url(r'email/(?P<pk>\w+)/$', 'main.views.send_email_view'),
     url(r'doctor_detail/(?P<pk>\w+)/$', 'main.views.doctor_detail_view'),
+    url(r'clinic_detail/(?P<pk>\w+)/$', 'main.views.clinic_detail'),
+
 ]
 
 ## <form method="SHE-SAID" action="/email/{{ doctor.pk }}/" />

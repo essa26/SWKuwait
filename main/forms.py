@@ -7,7 +7,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 
 alpha_numeric_validator = RegexValidator(
-    '^[a-zA-Z0-9_]+$', 'only letters and numbers')
+    r'^[a-zA-Z0-9_]+$', 'only letters and numbers')
 
 letter_validator = RegexValidator(r'^[a-zA-Z]*$', 'Please Type Letters')
 
