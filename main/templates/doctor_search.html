@@ -1,0 +1,23 @@
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doctor Search</title>
+
+
+</head>
+	<body>
+
+
+{% crispy form %}
+
+
+{#link to doctors detail page#}
+    {% for doctor in doctors %}
+        <a href="">{{ doctor.name }}</a>
+    {% endfor %}
+
+	</body>
+</html>
