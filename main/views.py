@@ -45,7 +45,7 @@ def bloodTest(request):
         # do calculations here
         if bloodsugar <= 97 and bloodsugar > 0:
             # very low
-            msg = "Very Low"
+            msg = "Very Low, see a physician!"
 
         elif bloodsugar > 97 and bloodsugar <= 133:
             # low
@@ -61,7 +61,7 @@ def bloodTest(request):
 
         elif bloodsugar > 240:
             # very high
-            msg = "Very High"
+            msg = "Very High, see a physican!"
         else:
             msg = "The laws of mathematics do not allow this error to logically exist"
 
@@ -71,6 +71,7 @@ def bloodTest(request):
             user = request.user
             date = datetime.now()
             log = Log.objects.create(userprof=user.userprofile, blood_sugar=bloodsugar, date=date, comment=comment, level=msg)
+
             log.save()
             userprof = user.userprofile
             logs = Log.objects.filter(userprof=userprof)
@@ -125,8 +126,7 @@ def clinic_list(request):
     return render_to_response('clinic_list.html', context, context_instance=RequestContext(request))
 
 
-#doctor's search view
-
+# doctor's search view
 def clinic_detail(request, pk):
 
     clinic = Clinic.objects.get(pk=pk)
@@ -176,8 +176,7 @@ def doctor_search(request):
     return render_to_response('doctor_search.html', context, context_instance=RequestContext(request))
 
 
-#doctor detail view
-
+# doctor detail view
 def doctor_detail_view(request, pk):
 
     context = {}
@@ -191,6 +190,7 @@ def doctor_detail_view(request, pk):
     context['form'] = form
 
     return render_to_response('doctor_detail.html', context, context_instance=RequestContext(request))
+
 
 @csrf_exempt
 def send_email_view(request, pk):
@@ -224,44 +224,4 @@ def send_email_view(request, pk):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
-
-
-# def bloodTestResult(request):
-#     bloodsugar = request.GET.get('bloodsugar')
-#     context = {}
-#     # do calculations here
-#     if bloodsugar <= 97 and bloodsugar > 0:
-#         # very low
-#         msg = "Very Low"
-#
-#     elif bloodsugar > 97 and bloodsugar <= 133:
-#         # low
-#         msg = "Low"
-#
-#     elif bloodsugar > 133 and bloodsugar <= 168:
-#         # normal
-#         msg = "Normal"
-#
-#     elif bloodsugar > 168 and bloodsugar <= 240:
-#         # high
-#         msg = "High"
-#
-#     elif bloodsugar > 240:
-#         # very high
-#         msg = "Very High"
-#
-#
-#     if request.user.is_authenticated():
-#         # save log in database of blood test
-#         user = request.user
-#         date = datetime.datetime.now()
-#         log = Log.objects.create(user=user, bloodsugar=bloodsugar, date=date)
-#         log.save()
-#
-#
-#     context['msg'] = msg
-#     template = 'bloodtest.html'
-#     return render_to_response(template, context, context_instance=RequestContext(request))
-
-
 

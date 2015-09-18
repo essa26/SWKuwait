@@ -9,11 +9,17 @@
 
 
 {% for log in logs %}
+<<<<<<< HEAD
+    {{ log.message }}
+    {{ log.date }}
+    {{ log.blood_sugar }}
+=======
 
     <h5>{{ log.date }}</h5></br>
     {{ log.blood_sugar }}</br>
     {{ log.level }}</br>
     {{ log.comment }}</br>
+>>>>>>> 07bfc30fad4eae84eb5fffbed8591d96b814ba50
 
 {% endfor %}
 </body>
