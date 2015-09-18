@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 
@@ -40,6 +40,7 @@ def bloodTest(request):
         return render_to_response(template, context, context_instance=RequestContext(request))
     else:
         bloodsugar = int(request.POST.get('bloodsugar'))
+        comment = request.POST.get('comment')
         print bloodsugar+5
         # do calculations here
         if bloodsugar <= 97 and bloodsugar > 0:
@@ -69,14 +70,14 @@ def bloodTest(request):
             # save log in database of blood test
             user = request.user
             date = datetime.now()
-            log = Log.objects.create(userprof=user.userprofile, blood_sugar=bloodsugar, date=date)
+            log = Log.objects.create(userprof=user.userprofile, blood_sugar=bloodsugar, date=date, comment=comment, level=msg)
             log.save()
             userprof = user.userprofile
             logs = Log.objects.filter(userprof=userprof)
             context['logs'] = logs
-            template = 'logbook.html'
+            #template = 'bloodtest.html'
             context['msg'] = msg
-            #return HttpResponseRedirect('/logbook/')
+            return HttpResponseRedirect('/logbook/')
 
         context['msg'] = msg
 
@@ -220,6 +221,9 @@ def send_email_view(request, pk):
     else:
         return HttpResponseRedirect('/')
 
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 
 # def bloodTestResult(request):

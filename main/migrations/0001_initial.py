@@ -25,6 +25,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255)),
                 ('mobile', models.CharField(max_length=15)),
+                ('email', models.CharField(max_length=255)),
                 ('clinic', models.ForeignKey(to='main.Clinic')),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
@@ -36,6 +37,7 @@ class Migration(migrations.Migration):
                 ('blood_sugar', models.IntegerField()),
                 ('date', models.DateTimeField()),
                 ('comment', models.TextField(null=True)),
+                ('level', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
@@ -53,7 +55,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='log',
-            name='user',
+            name='userprof',
             field=models.ForeignKey(to='main.UserProfile'),
         ),
     ]

@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$', 'main.views.home'),
     url(r'^logbook/$', 'main.views.getLogs'),
     url(r'^login/$', 'main.views.login_view'),
+    url(r'^logout/$', 'main.views.logout_view'),
     url(r'^clinic_list/$', 'main.views.clinic_list'),
     url(r'^doctorsearch/$', 'main.views.doctor_search'),
     url(r'email/(?P<pk>\w+)/$', 'main.views.send_email_view'),

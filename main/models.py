@@ -25,6 +25,7 @@ class Log(models.Model):
     date = models.DateTimeField()
     comment = models.TextField(null=True)
     userprof = models.ForeignKey('main.UserProfile')
+    level = models.CharField(max_length=255)
 
     def __unicode__(self):
         return self.user.username
