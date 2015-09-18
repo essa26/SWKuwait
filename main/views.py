@@ -63,6 +63,21 @@ def clinic_list(request):
 
 #doctor's search view
 
+def clinic_detail(request, pk):
+
+    clinic = Clinic.objects.get(pk=pk)
+
+    context = {}
+
+    context['clinic'] = clinic
+
+    doctors = DoctorProfile.objects.filter(clinic=clinic)
+
+    context['doctors'] = doctors
+
+    return render_to_response('clinic_detail.html', context, context_instance=RequestContext(request))
+
+
 def doctor_search(request):
 
     context = {}
@@ -76,22 +91,24 @@ def doctor_search(request):
     form = DoctorSearch
     context['form'] = form
 
-    if request.method == "GET":
-        form = DoctorSearch(request.GET)
+    if request.method == "POST":
 
+        form = DoctorSearch(request.POST)
+        print 1
         if form.is_valid():
             doctor = form.cleaned_data['name']
-
+            print 2
             print doctor
 
-            doctors = DoctorProfile.objects.filter(tags__name__icontains=doctor)
+            doctors = DoctorProfile.objects.filter(name__icontains=doctor)
 
             context['doctors'] = doctors
             context['valid'] = "The Form Was Valid"
 
         else:
             context['valid'] = form.errors
-
+            print 3
+    print 4
     return render_to_response('doctor_search.html', context, context_instance=RequestContext(request))
 
 
