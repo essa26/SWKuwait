@@ -148,8 +148,7 @@ def clinic_list(request):
     return render_to_response('clinic_list.html', context, context_instance=RequestContext(request))
 
 
-#doctor's search view
-
+# doctor's search view
 def doctor_search(request):
 
     context = {}
@@ -182,8 +181,7 @@ def doctor_search(request):
     return render_to_response('doctor_search.html', context, context_instance=RequestContext(request))
 
 
-#doctor detail view
-
+# doctor detail view
 def doctor_detail_view(request, pk):
 
     context = {}
@@ -197,6 +195,7 @@ def doctor_detail_view(request, pk):
     context['form'] = form
 
     return render_to_response('doctor_detail.html', context, context_instance=RequestContext(request))
+
 
 @csrf_exempt
 def send_email_view(request, pk):

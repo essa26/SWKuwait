@@ -26,5 +26,4 @@ urlpatterns = [
     url(r'doctor_detail/(?P<pk>\w+)/$', 'main.views.doctor_detail_view'),
 ]
 
-
 ## <form method="SHE-SAID" action="/email/{{ doctor.pk }}/" />
