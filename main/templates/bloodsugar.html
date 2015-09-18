@@ -1,21 +1,30 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-<form action="/bloodtest/" method="POST">
-    {% csrf_token %}
-    <h4>Blood Sugar Level</h4><input type="text" name="bloodsugar"></br>
-    <h4>How were you feeling?</h4><input type="text" name="comment">
+{% extends 'base.html' %}
+{% block body %}
 
-    {% if user.is_authenticated %}
-        <input type="submit" value="save">
-    {% else %}
-        <input type="submit" value="check">
-    {% endif %}
-</form>
-<span>{{ msg }}</span>
-</body>
-</html>
+
+
+
+    <section id="two" class="section swatch-white">
+        <div class="container">
+            <div class="row element-normal-top element-normal-bottom">
+                <div class="col-md-8 col-md-offset-2">
+                    <div align="center"><h3>Log Your Blood Sugar Level:</h3>
+
+                        <form action="/bloodtest/" method="POST">
+                            {% csrf_token %}
+                            <h4>Blood Sugar Level</h4><input type="text" name="bloodsugar"></br>
+                            <h4>How were you feeling?</h4><input type="text" name="comment"></br></br>
+
+                            {% if user.is_authenticated %}
+                                <input type="submit" value="save"></br></br>
+                            {% else %}
+                                <input type="submit" value="check"></br></br>
+                            {% endif %}
+                        </form>
+                    <span>{{ msg }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

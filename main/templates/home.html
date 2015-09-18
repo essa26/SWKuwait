@@ -31,12 +31,15 @@
 
                 </div>
             </div>
+            {% if user.is_authenticated %}
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="dashboard-div-wrapper">
                     <img src="{% static 'icon/logbook.png' %}" style="width:80px;"/>
                     <br/>
                     <a href="/logbook/"><span class="auto-style1">Logbook</span></a></div>
             </div>
+            {% else %}
+            {% endif %}
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="dashboard-div-wrapper">
                     <img src="{% static 'icon/appointment.png' %}" style="width:80px;"/>

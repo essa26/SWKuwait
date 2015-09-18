@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 
@@ -17,14 +18,32 @@ def home(request):
 
     return render_to_response('home.html', context, context_instance=RequestContext(request))
 
+
 def getLogs(request):
+
     context = {}
+
     if request.user.is_authenticated():
         user = request.user
         userprof = user.userprofile
         logs = Log.objects.filter(userprof=userprof)
         context['logs'] = logs
         template = 'logbook.html'
+
+        paginator = Paginator(logs, 10)
+
+        try:
+            page = int(request.GET.get('page', '1'))
+        except Exception, e:
+            page = 1
+
+        try:
+
+            logs = paginator.page(page)
+
+        except (InvalidPage, EmptyPage):
+            logs = paginator.page(paginator.num_pages)
+
 
         return render_to_response(template, context, context_instance=RequestContext(request))
     else:
@@ -80,7 +99,9 @@ def bloodTest(request):
             context['msg'] = msg
             return HttpResponseRedirect('/logbook/')
 
-        context['msg'] = msg
+        else:
+            template = "bloodtest.html"
+            context['msg'] = msg
 
         return render_to_response(template, context, context_instance=RequestContext(request))
 

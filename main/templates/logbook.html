@@ -1,21 +1,46 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block body %}
 
 
+    <section id="two" class="section swatch-white">
+        <div class="container">
+            <div class="row element-normal-top element-normal-bottom">
+                <div class="col-md-8 col-md-offset-2">
+                    <div align="center"><h3>Logbook</h3>
 
-{% for log in logs %}
+
+                        {% for log in logs %}
 
 
-    <h5>{{ log.date }}</h5></br>
-    {{ log.blood_sugar }}</br>
-    {{ log.level }}</br>
-    {{ log.comment }}</br>
+                            <h3>{{ log.date }}</h3>
+                            <p><b>Blood Sugar Level:</b>{{ log.blood_sugar }}</p>
+                            <p><b>System Notes:</b>{{ log.level }}</p>
+                            <p><b>Patient Notes:</b>{{ log.comment }}</p></br>
 
-{% endfor %}
-</body>
-</html>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="pages" align="center">
+
+        <h4>Pages:</h4>
+        {% if logs.object_list and logs.paginator.num_pages > 1 %}
+
+            {% if logs.has_previous %}
+                <button type="button" class="btn btn-sm"><a href="?page={{ logs.previous_page_number }}">back
+                </a></button>
+            {% endif %}
+
+            {{ logs.number }} of {{ logs.paginator.num_pages }}
+
+            {% if logs.has_next %}
+                <button type="button" class="btn btn-sm"><a href="?page={{ logs.next_page_number }}"> next
+                </a></button>
+            {% endif %}
+
+        {% endif %}
+    </div>
+
+{% endblock %}

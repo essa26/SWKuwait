@@ -4,14 +4,22 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
+    <section id="two" class="section swatch-white">
+        <div class="container">
+            <div class="row element-normal-top element-normal-bottom">
+                <div class="col-md-8 col-md-offset-2">
+                    <div align="center"> <h3>Search by Name:</h3>
+                    <a href="/clinic_list/"><p>Or click here to search find a doctor in a clinic</p></a>
+                    {% crispy form %}
 
 
-{% crispy form %}
-
-
-{#link to doctors detail page#}
-    {% for doctor in doctors %}
-        <a href="/doctor_detail/{{ doctor.pk }}">{{ doctor.name }}</a>
-    {% endfor %}
+                    {#link to doctors detail page#}
+                    {% for doctor in doctors %}
+                        <a href="/doctor_detail/{{ doctor.pk }}">{{ doctor.name }}</a>
+                    {% endfor %}
+                </div></div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

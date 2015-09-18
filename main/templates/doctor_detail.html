@@ -4,17 +4,30 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-    {{ doctor.name }}
-    {{ doctor.mobile }}
-    {{ doctor.email }}
-    {{ doctor.clinic }}
 
 
-                  <form action="/email/{{ doctor.pk }}/"method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
 
-        <input type="submit" value="Send Email">
-    </form>
+    <section id="two" class="section swatch-white">
+        <div class="container">
+            <div class="row element-normal-top element-normal-bottom">
+                <div class="col-md-8 col-md-offset-2">
+                   <h3>{{ doctor.name }}</h3>
+                        <p><b>Clinic:</b> {{ doctor.clinic }}</p>
+                        <p><b>Tel:</b> {{ doctor.mobile }}</p>
+                        <p><b>Email:</b> {{ doctor.email }}</p>
+
+
+                        <form action="/email/{{ doctor.pk }}/" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="Send Email">
+                        </form>
+                    </br>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

@@ -1,22 +1,28 @@
+{% extends 'base.html' %}
+
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Clinic List</title>
-    
+{% block body %}
 
-</head>
-	<body>
-
-
-{% for clinic in clinics %}
-
-{#    link to doctor detail page#}
-    <a href="">{{ clinic.name }}</a>
-
-{% endfor %}
+    <section id="two" class="section swatch-white">
+        <div class="container">
+            <div class="row element-normal-top element-normal-bottom">
+                <div class="col-md-8 col-md-offset-2">
+                    <div align="center"><h3>Clinics</h3>
 
 
-	</body>
-</html>
+                        {% for clinic in clinics %}
+                            <a href="/clinic_detail/{{ clinic.pk }}">{{ clinic.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {#    link to doctor detail page#}
+
+
+
+{% endblock %}
