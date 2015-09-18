@@ -1,0 +1,4 @@
+*.pyc
+SWKuwait/settings.py
+.idea/*
+.idea/
