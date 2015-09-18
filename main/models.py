@@ -8,12 +8,13 @@ from django.db import models
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    log = models.OneToOneField(Log)
+    log = models.OneToOneField('main.Log')
     name = models.CharField(max_length=255)
     mobile = models.CharField(max_length=15)
     emergency1 = models.CharField(max_length=15)
     emergency2 = models.CharField(max_length=15)
     clinic = models.ForeignKey('main.Clinic')
+    doctor = models.ForeignKey('main.DoctorProfile')
 
     def __unicode__(self):
         return self.user.username
