@@ -22,7 +22,7 @@ class Log(models.Model):
     blood_sugar = models.IntegerField()
     date = models.DateTimeField()
     comment = models.TextField(null=True)
-    user = models.ForeignKey('main.UserProfile')  # django stock user?
+    user = models.ForeignKey('main.UserProfile')
 
     def __unicode__(self):
         return self.user.username
@@ -39,3 +39,5 @@ class DoctorProfile(models.Model):
 
 
 class Clinic(models.Model):
+    user = models.OneToOneField(User)
+    name = models.CharField(max_length=255)
