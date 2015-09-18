@@ -1,14 +1,9 @@
+{% extends 'base.html' %}
+
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{ doctor.name }}</title>
-
-
-</head>
-	<body>
+{% block body %}
     {{ doctor.name }}
     {{ doctor.mobile }}
     {{ doctor.email }}
@@ -22,5 +17,4 @@
         <input type="submit" value="Send Email">
     </form>
 
-	</body>
-</html>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block body %}
+<div class="content-wrapper"
+     style="background-image: url('http://localhost:1567/assets/img/bg.png'); background-repeat: repeat">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="auto-style3">Dashboard</h4>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="dashboard-div-wrapper">
+                    <img src="{% static 'icon/bloodtest.png' %}" style="width:80px;"/>
+                    <br/>
+                       <a href="/bloodtest"> <span class="auto-style1">Sugar Blood test
+
+
+
+                    </span></a>
+
+
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="dashboard-div-wrapper">
+                    <img src="{% static 'icon/logbook.png' %}" style="width:80px;"/>
+                    <br/>
+                    <a href="/logbook/"><span class="auto-style1">Logbook</span></a></div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="dashboard-div-wrapper">
+                    <img src="{% static 'icon/appointment.png' %}" style="width:80px;"/>
+                    <br/>
+                    <a href="/doctorsearch/"><span class="auto-style1">Set appointment</span></a></div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="dashboard-div-wrapper">
+                    <img src="{% static 'icon/setting.png' %}" style="width:80px;"/>
+                    <br/>
+                        <span class="auto-style1">Profile setting
+
+
+
+                    </span>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="dashboard-div-wrapper">
+                    <img src="{% static 'icon/ask.png' %}" style="width:80px;"/>
+                    <br/>
+                        <a href="/doctorsearch/"><span class="auto-style1">Ask Doctor
+
+
+
+                    </span></a>
+
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+            </div>
+        </div>
+    </div>
+{% endblock %}

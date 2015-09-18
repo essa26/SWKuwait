@@ -1,14 +1,9 @@
+{% extends 'base.html' %}
+
 {% load staticfiles %}
 {% load crispy_forms_tags %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Doctor Search</title>
-
-
-</head>
-	<body>
+{% block body %}
 
 
 {% crispy form %}
@@ -19,5 +14,4 @@
         <a href="/doctor_detail/{{ doctor.pk }}">{{ doctor.name }}</a>
     {% endfor %}
 
-	</body>
-</html>
+{% endblock %}
