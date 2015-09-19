@@ -2,84 +2,161 @@
 
 {% load staticfiles %}
 {% block body %}
-<div class="content-wrapper"
-     style="background-image: url('http://localhost:1567/assets/img/bg.png'); background-repeat: repeat">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="auto-style3">Dashboard</h4>
-
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="dashboard-div-wrapper">
-                    <img src="{% static 'icon/bloodtest.png' %}" style="width:80px;"/>
-                    <br/>
-                       <a href="/bloodtest"> <span class="auto-style1">Sugar Blood test
-
-
-
-                    </span></a>
-
-
-                </div>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="dashboard-div-wrapper">
-                    <img src="{% static 'icon/logbook.png' %}" style="width:80px;"/>
-                    <br/>
-                    <a href="/logbook/"><span class="auto-style1">Logbook</span></a></div>
-            </div>
-            {% else %}
-            {% endif %}
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="dashboard-div-wrapper">
-                    <img src="{% static 'icon/appointment.png' %}" style="width:80px;"/>
-                    <br/>
-                    <a href="/doctorsearch/"><span class="auto-style1">Set appointment</span></a></div>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="dashboard-div-wrapper">
-                    <img src="{% static 'icon/setting.png' %}" style="width:80px;"/>
-                    <br/>
-                        <span class="auto-style1">Profile setting
-
-
-
-                    </span>
-
-
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="dashboard-div-wrapper">
-                    <img src="{% static 'icon/ask.png' %}" style="width:80px;"/>
-                    <br/>
-                        <a href="/doctorsearch/"><span class="auto-style1">Ask Doctor
-
-
-
-                    </span></a>
-
-
-                </div>
-            </div>
-
-
-
-
-
+    <div class="content-wrapper"
+         style="background-image: url('http://localhost:1567/assets/img/bg.png'); background-repeat: repeat">
+        <div class="container">
             <div class="row">
+                <div class="col-md-12">
+                    <h4 class="auto-style3">Home</h4>
+
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+
+            </div>
+            <div class="row">
+
+                {% if user.is_authenticated %}
+
+
+
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/bloodtest"><img src="{% static 'icon/bloodtest.png' %}" style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Sugar Blood test</span></a>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/logbook/"><img src="{% static 'icon/logbook.png' %}" style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Logbook</span></a></div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/doctorsearch/"><img src="{% static 'icon/appointment.png' %}"
+                                                          style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Set appointment</span></a></div>
+                    </div>
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="dashboard-div-wrapper">
+                        <a href="/doctorsearch/"><img src="{% static 'icon/ask.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Ask Doctor</span></a>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/reminder.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Set Reminder</span></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/education.png' %}" style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Education Programs</span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/trip.png' %}" style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Trips</span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/pharmacy.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Drug Search</span></a>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/setting.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Profile setting</span></a>
+                        </div>
+                    </div>
+
+                {% else %}
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/bloodtest"><img src="{% static 'icon/bloodtest.png' %}" style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Sugar Blood test</span></a>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/dailyadvice.png' %}"
+                                                          style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Daily Advice</span></a></div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/pharmacy.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Drug Search</span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/education.png' %}" style="width:80px;"/>
+                                <br/>
+                                <span class="auto-style1">Diabetes Info</span></a>
+                        </div>
+                    </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="dashboard-div-wrapper">
+                        <a href="/doctorsearch/"><img src="{% static 'icon/ask.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Ask Doctor</span></a>
+                    </div>
+                </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="dashboard-div-wrapper">
+                            <a href="/"><img src="{% static 'icon/setting.png' %}" style="width:80px;"/>
+                            <br/>
+                            <span class="auto-style1">Why Signup?</span></a>
+                        </div>
+                    </div>
+                {% endif %}
+
+
+
+
+
+
+                <div class="row">
+                </div>
             </div>
         </div>
-    </div>
 {% endblock %}

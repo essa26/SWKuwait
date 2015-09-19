@@ -161,7 +161,7 @@ header {
 }
 
 #menu-top a {
-    color: #FFF;
+    color: #000;
     text-decoration: none;
     font-weight: 500;
     padding: 10px 10px 10px 10px;
@@ -200,7 +200,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #6474c3;
+    background-color: #0A2AA7;
 }
 
     footer a, footer a:hover {

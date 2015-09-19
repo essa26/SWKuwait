@@ -27,7 +27,7 @@ def getLogs(request):
         user = request.user
         userprof = user.userprofile
         logs = Log.objects.filter(userprof=userprof)
-        context['logs'] = logs
+        context['logs'] = reversed(logs)
         template = 'logbook.html'
 
         paginator = Paginator(logs, 10)
@@ -60,27 +60,32 @@ def bloodTest(request):
     else:
         bloodsugar = int(request.POST.get('bloodsugar'))
         comment = request.POST.get('comment')
-        print bloodsugar+5
+        user = request.user
         # do calculations here
         if bloodsugar <= 97 and bloodsugar > 0:
             # very low
             msg = "Very Low, see a physician!"
+            if user.is_authenticated():
+                msg += " A message has been sent to your emergency contacts."
 
         elif bloodsugar > 97 and bloodsugar <= 133:
             # low
-            msg = "Low"
+            msg = "Low, be more active and watch your food!"
 
         elif bloodsugar > 133 and bloodsugar <= 168:
             # normal
-            msg = "Normal"
+            msg = "Normal, good for you!"
 
         elif bloodsugar > 168 and bloodsugar <= 240:
             # high
-            msg = "High"
+            msg = "High, be more active and watch your food!"
 
         elif bloodsugar > 240:
             # very high
             msg = "Very High, see a physican!"
+            if user.is_authenticated():
+                msg += " A message has been sent to your emergency contacts."
+
         else:
             msg = "The laws of mathematics do not allow this error to logically exist"
 
@@ -94,7 +99,8 @@ def bloodTest(request):
             log.save()
             userprof = user.userprofile
             logs = Log.objects.filter(userprof=userprof)
-            context['logs'] = logs
+            context['logs'] = reversed(logs)
+            print context['logs']
             #template = 'bloodtest.html'
             context['msg'] = msg
             return HttpResponseRedirect('/logbook/')
@@ -179,11 +185,9 @@ def doctor_search(request):
     if request.method == "POST":
 
         form = DoctorSearch(request.POST)
-        print 1
+
         if form.is_valid():
             doctor = form.cleaned_data['name']
-            print 2
-            print doctor
 
             doctors = DoctorProfile.objects.filter(name__icontains=doctor)
 
@@ -192,8 +196,7 @@ def doctor_search(request):
 
         else:
             context['valid'] = form.errors
-            print 3
-    print 4
+
     return render_to_response('doctor_search.html', context, context_instance=RequestContext(request))
 
 
