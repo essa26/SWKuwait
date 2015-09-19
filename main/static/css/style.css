@@ -78,7 +78,7 @@ background-color:#061b68;
    HEADER SECTION STYLES
  ============================================================ */
 header {
-    background-color: #02087f;
+    background-color: #5480B3;
     color: #fff;
     padding: 10px;
     text-align: right;
@@ -157,7 +157,7 @@ header {
 /* MENU LINKS SECTION*/
 
 .menu-section {
-    background-color: #0a2aa7;
+    background-color: #5480B3;
 }
 
 #menu-top a {
@@ -200,7 +200,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #0A2AA7;
+    background-color: #5480B3;
 }
 
     footer a, footer a:hover {
